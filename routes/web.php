@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\sampleController;
+// use App\Http\Controllers\sampleController;
 
+use App\Http\Controllers\userController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,14 +14,30 @@ use App\Http\Controllers\sampleController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get("sample",[sampleController::class,'show'] );
+// Route::get("sample",[sampleController::class,'show'] );
 
-Route::get("sample3/{id}",[sampleController::class,'hide']);
+// Route::get("sample3/{id}",[sampleController::class,'hide']);
 
-Route::get("sample2/{sample4?}",function($sample4="Reshma"){
-    return view('sample2',['sample4'=>$sample4]);
+// Route::get("sample2/{sample4?}",function($sample4="Reshma"){
+//     return view('sample2',['sample4'=>$sample4]);
+// });
+
+Route::get('/form', function () {
+    return view('userview');
 });
 
-Route::get('/', function () {
-    return view('hello');
-});
+Route::post("/submit",[userController::class,'save']);
+// Route::get("submit",[userController::class,'show']);
+Route::get("/main",[userController::class,'show']);
+
+
+
+
+
+
+
+
+
+
+
+
