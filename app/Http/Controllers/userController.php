@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use App\Models\student;
 class userController extends Controller
@@ -24,8 +24,44 @@ class userController extends Controller
     //     return view("hello",["about"->$id]);
 
     // }
+    public function del($id) {
+        DB::delete('delete from students where id = ?',[$id]);
+        echo "Record deleted successfully.
+        ";
+        echo 'Click Here to go back.';
+        }
     function show(){
         $info=student::all();
         return view('main',['members'=>$info]);
+    }
+    function addme(){
+        return view('userview');
+    }
+    function edit($id){
+        $store=student::find($id);
+        return view('updateView',['udata'=>$store]);
+        // echo $store->name;
+    }
+    function nono(Request $req,$id){
+        $name=$req->name;
+        $email=$req->email;
+        $gender=$req->gender;
+        $phone=$req->phone;
+        $description=$req->description;
+        $language=$req->language;
+        $country=$req->country;
+        $state=$req->state;
+        $city=$req->city;
+        DB::update('update students set name = ?,email=?,gender=?,phone=?,description=?,language=?,country=?,state=?,city=? where id = ?',[$name,$email,$gender,$phone,$description,$language,$country,$state,$city,$id]);
+                echo "Record updated successfully.";
+        }
+    function getData(){
+        return ["name"=>"Reshma"];
+    }
+    function list($id){
+        return student::find($id);
+    }
+    function listpara($id=null){
+        return $id?student::find($id): "hello";
     }
 }

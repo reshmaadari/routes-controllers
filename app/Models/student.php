@@ -10,7 +10,7 @@ class student extends Model
     // use HasFactory;
     public $timestamps=false;
     // protected $table='students';
-    // protected $fillable=  
+    // protected $fillable=
     // [ 
     // 'name',
     // 'email',

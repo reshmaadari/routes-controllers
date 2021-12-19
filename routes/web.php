@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\sampleController;
-
+use App\Models\student;
 use App\Http\Controllers\userController;
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,13 @@ Route::get('/form', function () {
 Route::post("/submit",[userController::class,'save']);
 // Route::get("submit",[userController::class,'show']);
 Route::get("/main",[userController::class,'show']);
+Route::get("/back",[userController::class,'addme']);
+Route::get("/update{id}",[userController::class,'edit']);
+Route::post("/update{id}",[userController::class,'nono']);
+
+
+Route::get("/delete{id}",[userController::class,'del']);
+
 
 
 
