@@ -17,7 +17,6 @@ class UserMigration extends Migration
         Schema::create('students',function(Blueprint $table){
             
             $table->string('name');
-            $table->bigIncrements('id')->after('name');
             $table->string('email');
             $table->string('gender');
             $table->string('phone');

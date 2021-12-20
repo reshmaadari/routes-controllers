@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
-
+use App\Http\Controllers\empctrl;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,8 +16,11 @@ use App\Http\Controllers\userController;
 */
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
+//     return $request->user(); 
 Route::get('data',[userController::class,'getData']);
-Route::get('list{id}',[userController::class,'list']);
-Route::get('listpara/{id?}',[userController::class,'listpara']);
-
+Route::get('listpara/{id}',[empctrl::class,'listpara']);
+Route::get('list/{id?}',[empctrl::class,'list']);
+Route::post('add',[empctrl::class,'add']);
+Route::delete('delete/{id}',[empctrl::class,'delete']);
+// Route::get('edit',[empctrl::class,'dispaly']);
+Route::put('edit',[empctrl::class,'edit']);
