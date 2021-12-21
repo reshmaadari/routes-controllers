@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\student;
+use App\Models\employee;
 class userController extends Controller
 {
     function save(Request $req){
@@ -63,7 +64,7 @@ class userController extends Controller
     function list($id=null){
         return $id?student::find($id):student::all();
         }
-        // function add(Request $req){
+        //     function add(Request $req){
         //     $data=new student;
         //     $data->name=$req->name;
         //     $data->email=$req->email;
@@ -77,4 +78,12 @@ class userController extends Controller
         //     $data->save();
         //     return ["data has been saved"];
         // }
+        function index($id){
+            // return employee::find(2)->getstd;
+            return employee::find($id)->getCmp;
+        }
+        function indexa($id){
+            // return employee::find(2)->getstd;
+            return employee::find($id)->getCmps;
+        }
 }

@@ -32,7 +32,5 @@ class empctrl extends Controller
         // DB::update('update employees set Name = ?,phone=?',[$emp->Name,$emp->phone]);
         echo "Record updated successfully.";
     }
-    function display($id){
-
-    }
+    
 }

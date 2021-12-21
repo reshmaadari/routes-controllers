@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\sampleController;
-use App\Models\student;
+// use App\Http\Controllers\sampleController;  
 use App\Http\Controllers\userController;
+use App\Http\Controllers\collections;
+
+
+// use App\Http\Controllers\relationCtrl;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,9 +35,12 @@ Route::get("/main",[userController::class,'show']);
 Route::get("/back",[userController::class,'addme']);
 Route::get("/update{id}",[userController::class,'edit']);
 Route::post("/update{id}",[userController::class,'nono']);
-
-
 Route::get("/delete{id}",[userController::class,'del']);
+
+Route::get('hasone/{id}',[userController::class,'index']);
+Route::get('hasmany/{id}',[userController::class,'indexa']);
+Route::get('collect',[collections::class,'index']);
+
 
 
 
